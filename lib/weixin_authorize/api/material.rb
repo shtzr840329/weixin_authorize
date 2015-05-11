@@ -24,7 +24,7 @@ module WeixinAuthorize
 
       # https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN
       # 获取永久素材列表
-      def batch_material_list(type, offset, count=20)
+      def get_material_list(type, offset, count=20)
         batch_material_url = "#{material_base_url}/batchget_material"
         http_post(batch_material_url, {type: type, offset: offset, count: count})
       end
