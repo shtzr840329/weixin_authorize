@@ -22,6 +22,14 @@ module WeixinAuthorize
       #   download_media_url
       # end
 
+      # https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN
+      # 获取永久素材列表
+      def batch_material_list(type, offset, count=20)
+        batch_material_url = "#{material_base_url}/batchget_material"
+        http_post(batch_material_url, {type: type, offset: offset, count: count})
+      end
+
+
       # 新增永久图文素材
       # https://api.weixin.qq.com/cgi-bin/material/add_news?access_token=ACCESS_TOKEN
       # 上传图文消息素材, 主要用于群发消息接口
