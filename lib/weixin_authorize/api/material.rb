@@ -61,11 +61,12 @@ module WeixinAuthorize
 
       # 新增其他类型永久素材
       # https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
-      def add_material(media, media_type)
+      def upload_material(media, media_type)
         file = process_file(media)
         upload_media_url = "#{media_base_url}/add_material"
         http_post(upload_media_url, {media: file}, {type: media_type}, "file")
       end
+
       # media_id: 需通过基础支持中的上传下载多媒体文件来得到
       # https://file.api.weixin.qq.com/cgi-bin/media/uploadvideo?access_token=ACCESS_TOKEN
 
