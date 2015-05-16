@@ -63,7 +63,7 @@ module WeixinAuthorize
       # https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
       def upload_material(material, material_type)
         file = process_file(material)
-        upload_material_url = "#{media_base_url}/upload_material"
+        upload_material_url = "#{material_base_url}/upload_material"
         http_post(upload_media_url, {media: file}, {type: material_type}, "file")
       end
 
