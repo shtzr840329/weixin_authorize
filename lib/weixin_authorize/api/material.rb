@@ -55,7 +55,7 @@ module WeixinAuthorize
       def add_material(material, material_type)
         file = process_file(material)
         add_material_url = "#{material_base_url}/add_material"
-        http_post(add_material_url, {media: file}, {type: material_type}, "api")
+        http_post(add_material_url, {media: file}, {type: material_type}, "material")
       end
 
       # media_id: 需通过基础支持中的上传下载多媒体文件来得到
