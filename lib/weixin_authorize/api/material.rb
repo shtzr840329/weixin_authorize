@@ -46,16 +46,16 @@ module WeixinAuthorize
       # }
       # Option: author, content_source_url
       def add_news(news=[])
-        upload_material_url = "#{material_base_url}/add_news"
-        http_post(upload_material_url, {articles: news})
+        add_news_url = "#{material_base_url}/add_news"
+        http_post(add_news_url, {articles: news})
       end
 
       # 新增其他类型永久素材
       # https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
-      def upload_material(material, material_type)
+      def add_material(material, material_type)
         file = process_file(material)
-        upload_material_url = "#{material_base_url}/add_material"
-        http_post(upload_material_url, {media: file}, {type: material_type}, "file")
+        add_material_url = "#{material_base_url}/add_material"
+        http_post(add_material_url, {media: file}, {type: material_type}, "false")
       end
 
       # media_id: 需通过基础支持中的上传下载多媒体文件来得到
