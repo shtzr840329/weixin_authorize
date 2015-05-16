@@ -51,11 +51,11 @@ module WeixinAuthorize
       end
 
       # 新增其他类型永久素材
-      # https://file.api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
+      # https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
       def add_material(material, material_type)
         file = process_file(material)
         add_material_url = "#{material_base_url}/add_material"
-        http_post(add_material_url, {media: file}, {type: material_type}, "file")
+        http_post(add_material_url, {media: file}, {type: material_type}, "api")
       end
 
       # media_id: 需通过基础支持中的上传下载多媒体文件来得到
