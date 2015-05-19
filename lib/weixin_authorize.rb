@@ -64,10 +64,6 @@ module WeixinAuthorize
       "https://api.weixin.qq.com"
     end
 
-    def material_endpoint
-      "https://api.weixin.qq.com/cgi-bin"
-    end
-
     def file_endpoint
       "http://file.api.weixin.qq.com/cgi-bin"
     end
