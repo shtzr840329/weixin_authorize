@@ -50,6 +50,26 @@ module WeixinAuthorize
         http_post(add_news_url, {articles: news})
       end
 
+      # 更新永久图文素材
+      # https://api.weixin.qq.com/cgi-bin/material/update_news?access_token=ACCESS_TOKEN
+      # {
+      #   "media_id":MEDIA_ID,
+      #   "index":INDEX,
+      #   "articles": {
+      #        "title": TITLE,
+      #        "thumb_media_id": THUMB_MEDIA_ID,
+      #        "author": AUTHOR,
+      #        "digest": DIGEST,
+      #        "show_cover_pic": SHOW_COVER_PIC(0 / 1),
+      #        "content": CONTENT,
+      #        "content_source_url": CONTENT_SOURCE_URL
+      #     }
+      # }
+      def update_news(media_id, index, news={})
+        update_news_url = "#{material_base_url}/update_news"
+        http_post(update_news, (media_id: media_id, index: index, articles: news))
+      end 
+      
       # 新增其他类型永久素材
       # https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
       def add_material(material, material_type)
