@@ -67,7 +67,7 @@ module WeixinAuthorize
       # }
       def update_news(media_id, index, news={})
         update_news_url = "#{material_base_url}/update_news"
-        http_post(update_news, (media_id: media_id, index: index, articles: news))
+        http_post(update_news_url, { media_id: media_id, index: index, articles: news } )
       end 
       
       # 新增其他类型永久素材
