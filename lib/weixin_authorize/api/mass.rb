@@ -33,6 +33,7 @@ module WeixinAuthorize
       end
 
       # 预览接口【订阅号与服务号认证后均可用】
+      # media_info= {"media_id" => media_id, "title" => "title", "description" => "description"}
       def mass_preview(openid, media_info, msgtype="mpnews")
         openid_option = {"touser" => openid}
         media = generate_media(msgtype, media_info, openid_option)

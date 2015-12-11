@@ -5,13 +5,13 @@ module WeixinAuthorize
     module Material
 
       # 目前仅仅把下载链接返回给第三方开发者，由第三方开发者处理下载
-      # def download_media_url(media_id)
-      #   download_media_url = WeixinAuthorize.endpoint_url("file", "#{media_base_url}/get")
-      #   params = URI.encode_www_form("access_token" => get_access_token,
-      #                                "media_id"     => media_id)
-      #   download_media_url += "?#{params}"
-      #   download_media_url
-      # end
+      def download_media_url(media_id)
+        download_media_url = WeixinAuthorize.endpoint_url("file", "#{material_base_url}/get_material")
+        params = URI.encode_www_form("access_token" => get_access_token,
+                                     "media_id"     => media_id)
+        download_media_url += "?#{params}"
+        download_media_url
+      end
 
       # https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN
       # 获取永久素材列表
@@ -68,8 +68,8 @@ module WeixinAuthorize
       def update_news(media_id, index, news={})
         update_news_url = "#{material_base_url}/update_news"
         http_post(update_news_url, { media_id: media_id, index: index, articles: news } )
-      end 
-      
+      end
+
       # 新增其他类型永久素材
       # https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=ACCESS_TOKEN
       def add_material(material, material_type)
