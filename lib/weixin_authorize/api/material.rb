@@ -5,12 +5,12 @@ module WeixinAuthorize
     module Material
 
       # 目前仅仅把下载链接返回给第三方开发者，由第三方开发者处理下载
-      def download_media_url(media_id)
-        download_media_url = WeixinAuthorize.endpoint_url("file", "#{material_base_url}/get_material")
+      def download_material_url(media_id)
+        download_material_url = WeixinAuthorize.endpoint_url("file", "#{material_base_url}/get_material")
         params = URI.encode_www_form("access_token" => get_access_token,
                                      "media_id"     => media_id)
-        download_media_url += "?#{params}"
-        download_media_url
+        download_material_url += "?#{params}"
+        download_material_url
       end
 
       # https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN
