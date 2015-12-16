@@ -104,6 +104,13 @@ module WeixinAuthorize
       #   http_post("#{media_base_url}/uploadvideo", video_msg)
       # end
 
+      # 获取永久素材
+      # https://api.weixin.qq.com/cgi-bin/material/get_material?access_token=ACCESS_TOKEN
+      def get_material(media_id)
+        get_material_url = "#{material_base_url}/get_material"
+        http_post(get_material_url, {media_id: media_id})
+      end
+
       private
 
         def material_base_url
