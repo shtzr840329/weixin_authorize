@@ -107,8 +107,13 @@ module WeixinAuthorize
       # 获取永久素材
       # https://api.weixin.qq.com/cgi-bin/material/get_material?access_token=ACCESS_TOKEN
       def get_material(media_id)
-        get_material_url = "#{material_base_url}/get_material"
-        http_post(get_material_url, {media_id: media_id})
+        # get_material_url = "#{material_base_url}/get_material"
+        # http_post(get_material_url, {media_id: media_id})
+        download_media_url = WeixinAuthorize.endpoint_url("file", "#{material_base_url}/get_material")
+        params = URI.encode_www_form("access_token" => get_access_token,
+                                     "media_id"     => media_id)
+        download_media_url += "?#{params}"
+        download_media_url
       end
 
       private
